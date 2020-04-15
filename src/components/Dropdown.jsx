@@ -9,9 +9,11 @@ import DropdownContent from './dropdown-content.js';
 class Dropdown extends Component {
   displayName: 'Dropdown'
 
+  // These event listeners need to capture rather than bubble.
+  // Otherwise the toggle click won't register the window click, and you can end up with multiple open dropdowns when clicking on triggers
   componentDidMount () {
-    window.addEventListener('click', this._onWindowClick);
-    window.addEventListener('touchstart', this._onWindowClick);
+    window.addEventListener('click', this._onWindowClick, true);
+    window.addEventListener('touchstart', this._onWindowClick, true);
   }
 
   componentWillUnmount () {
