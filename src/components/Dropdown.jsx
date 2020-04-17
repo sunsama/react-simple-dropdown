@@ -17,8 +17,8 @@ class Dropdown extends Component {
   }
 
   componentWillUnmount () {
-    window.removeEventListener('click', this._onWindowClick);
-    window.removeEventListener('touchstart', this._onWindowClick);
+    window.removeEventListener('click', this._onWindowClick, true);
+    window.removeEventListener('touchstart', this._onWindowClick, true);
   }
 
   constructor (props) {
